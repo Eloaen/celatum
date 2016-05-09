@@ -18,7 +18,7 @@ public class Main {
     boolean debug = false;
     if (debug) {
       Main.dataFile.saveData();
-      File file = File.createTempFile("aadsfdascfdasf", "dasfdasfdsaf");
+      File file = File.createTempFile("TempFile", "TempFile");
       file.deleteOnExit();
       Main.dataFile = new DataFile(file.getAbsolutePath());
       Main.dataFile.loadData();
@@ -26,8 +26,9 @@ public class Main {
       Main.gui.getBase().setVisible(false);
       User u = Main.dataFile.getUserList().registerNewUser();
       u.setUsername("TestAccount");
-      u.getAccounts().addAccount("ad3ff", "adf", new char[] {'a', 'b'});
-      new PasswordManagerGui(u, "TestAccount", new char[] {'u', 'r', 'm', 'o', 'm'});
+      u.getAccounts().addAccount("Platform", "Username",
+          new char[] {'p', 'a', 's', 's', 'w', 'o', 'r', 'd'});
+      new PasswordManagerGui(u, "TestAccount", new char[] {'p', 'a', 's', 's', 'w', 'o', 'r', 'd'});
       return;
     }
     Main.gui = new Gui();
