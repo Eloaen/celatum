@@ -233,7 +233,6 @@ public class PasswordManagerGui {
     } else {
       PasswordManagerGui.this.model.updateFilter(text);
     }
-    PasswordManagerGui.this.information2.repaint();
   }
 
   private void setScreen(Screen screen) {
