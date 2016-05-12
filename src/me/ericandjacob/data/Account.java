@@ -43,8 +43,7 @@ public class Account {
 
   @Override
   public String toString() {
-    // TODO Auto-generated method stub
-    return new StringBuilder().append("Account[site=").append(this.site).append(",username=").append(this.username).append(",password=]").append(this.password.toString()).toString();
+    return new StringBuilder().append("Account[site=").append(this.site).append(",username=").append(this.username).append(",password=").append(this.password.toString()).append("]]").toString();
   }
   
 }
