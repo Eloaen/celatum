@@ -33,7 +33,7 @@ public class VersionChecker {
   }
 
   public static double getVersion() {
-    return 1.2;
+    return 1.3;
   }
 
 
