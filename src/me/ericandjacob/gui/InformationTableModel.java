@@ -46,10 +46,12 @@ public class InformationTableModel extends AbstractTableModel {
     for (int i = 0; i < accountList.getLength(); ++i) {
       this.filter.add(i);
     }
+    this.fireTableDataChanged();
   }
 
   public void updateFilter(String filter) {
     this.filter = accountList.searchFor(filter);
+    this.fireTableDataChanged();
   }
 
   public void setAccountList(AccountList accountList) {
