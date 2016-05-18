@@ -18,12 +18,17 @@ public class Main {
     boolean debug = false;
     if (debug) {
       Main.dataFile.saveData();
-      File file = File.createTempFile("TempFile", "TempFile");
-      file.deleteOnExit();
+      File file = (args.length > 1 && args[0].equals("file")) ? new File(args[1]) : File.createTempFile("TempFile", "TempFile");
       Main.dataFile = new DataFile(file.getAbsolutePath());
       Main.dataFile.loadData();
       Main.gui = new Gui();
       Main.gui.getBase().setVisible(false);
+      if (args.length > 1 && args[0].equals("file")) {
+        Main.gui.getBase().setVisible(true);
+        return;
+      }
+      file.deleteOnExit();
+
       User u = Main.dataFile.getUserList().registerNewUser();
       u.setUsername("TestAccount");
       u.getAccounts().addAccount("Platform", "Username",
