@@ -68,12 +68,12 @@ public class DataFile {
       List<User> userList = this.users.getUserList();
       StreamUtils.writeInt(fos, userList.size());
       for (int i = 0; i < userList.size(); ++i) {
-        if (userList.get(0).isDecrypted()) {
+        if (userList.get(i).isDecrypted()) {
           fos.close();
           this.location.delete();
           throw new IllegalArgumentException("All users in the UserList must be encrypted.");
         }
-        userList.get(0).writeUserToStream(fos);
+        userList.get(i).writeUserToStream(fos);
       }
       fos.close();
       return true;
